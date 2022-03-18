@@ -9,8 +9,11 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     public GameObject bullet;
     private int _lifes;
     public Transform arma01;
-    public float shootDelay = 0.01f;
+    public float shootDelay = 0.001f;
     private float _lastShootTimestamp = 0.0f;
+    public AudioClip shootSFX;
+    public AudioClip thrustersSFX;
+
 
     private int lifes;
     private void Start()
@@ -23,6 +26,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
    public void Shoot()
    {
         if (Time.time - _lastShootTimestamp < shootDelay) return;
+        AudioManager.PlaySFX(shootSFX);
         _lastShootTimestamp = Time.time;
         Instantiate(bullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
 
@@ -47,10 +51,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         if (yInput != 0 || xInput != 0)
         {
             animator.SetFloat("Velocity", 1.0f);
+            // AudioManager.PlaySFX(thrustersSFX);
         }
         else
         {
             animator.SetFloat("Velocity", 0.0f);
+            // AudioManager.PauseSFX();
         }
 
          if(Input.GetAxisRaw("Jump") != 0)
