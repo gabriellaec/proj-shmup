@@ -620,6 +620,11 @@ ParentConstraint:
   m_Sources:
   - sourceTransform: {fileID: 1089724489}
     weight: 1
+--- !u!1 &677395046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2681684004049938900, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+  m_PrefabInstance: {fileID: 1284604096}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &862239510
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,7 +871,7 @@ MonoBehaviour:
   td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
   bullet: {fileID: 2681684004049938900, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
   arma01: {fileID: 0}
-  shootDelay: 1
+  shootDelay: 0.5
   shootSFX: {fileID: 8300000, guid: 8cf5c3e25b1c42c44aa06ddfa21bc54a, type: 3}
   thrustersSFX: {fileID: 8300000, guid: 90109b8244931d54a876a611b67117cc, type: 3}
 --- !u!61 &1089724491
@@ -935,6 +940,75 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!1001 &1284604096
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 861947652693616817, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 861947652693616817, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 861947652693616817, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_Color.r
+      value: 0.09986162
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681684004049938900, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_Name
+      value: TiroInimigo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3877958630830841693, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
 --- !u!1 &1420920052
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,9 +1022,12 @@ GameObject:
   - component: {fileID: 1420920057}
   - component: {fileID: 1420920056}
   - component: {fileID: 1420920055}
+  - component: {fileID: 1420920060}
+  - component: {fileID: 1420920059}
+  - component: {fileID: 1420920058}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Inimigos
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1033,6 +1110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
+  tiro: {fileID: 677395046}
 --- !u!61 &1420920056
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1080,6 +1158,44 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1420920058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420920052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45521e6daa99aae48aba9347b4b966fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  td: {fileID: 11400000, guid: 15cab9e6b114e994cb3c2c0c83a9f426, type: 2}
+--- !u!114 &1420920059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420920052}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3466d028e72168040b0bda7a6b9fe940, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootDelay: 0.1
+--- !u!114 &1420920060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420920052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f58ccce33f3798a4f97dff8e2ca27a4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1612351634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4516705584645406132, guid: 303e1c701efe2c24498f07057db230f7, type: 3}
