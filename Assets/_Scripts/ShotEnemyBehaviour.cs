@@ -8,16 +8,18 @@ public class ShotEnemyBehaviour : SteerableBehaviour
 
   private Vector3 direction;
 
+  private GameObject player;
 
   void Start()
   {
-      Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
-      direction = (posPlayer - transform.position).normalized;
+      //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
+      player = GameObject.FindWithTag("Player");
+      //direction = (posPlayer - transform.position).normalized;
   }
 
    void Update()
   {
-      Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
+      Vector3 posPlayer = player.transform.position;
       direction =  (posPlayer - transform.position).normalized;
       Thrust(direction.x, direction.y);
   }
@@ -29,7 +31,13 @@ public class ShotEnemyBehaviour : SteerableBehaviour
 
    private void OnTriggerEnter2D(Collider2D collision)
   {
-      if (collision.CompareTag("Inimigos")) return;
+      Debug.Log("ola" + collision.gameObject.tag);
+      if (collision.CompareTag("Inimigos")){
+          Debug.Log("oiee");
+        Destroy(gameObject);
+          return;
+
+      } 
 
       IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
       if (!(damageable is null))

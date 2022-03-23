@@ -69,7 +69,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     {
         if (collision.CompareTag("Inimigos"))
         {
-            Destroy(collision.gameObject);
+            // Destroy(collision.gameObject);
             TakeDamage();
         }
     }  

@@ -11,6 +11,6 @@ public class SimpleEnemy : SteerableBehaviour, IDamageable
 
     public void Die()
     {
-        Destroy(gameObject);
+       Destroy(gameObject);
     }
 }

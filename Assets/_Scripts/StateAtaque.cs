@@ -14,7 +14,7 @@ public override void Awake()
        Transition ToPatrulha = new Transition();
        ToPatrulha.condition = new ConditionDistGT(transform,
            GameObject.FindWithTag("Player").transform,
-           2.0f);
+           5.0f);
        ToPatrulha.target = GetComponent<StatePatrulha>();
        // Adicionamos a transição em nossa lista de transições
        transitions.Add(ToPatrulha);

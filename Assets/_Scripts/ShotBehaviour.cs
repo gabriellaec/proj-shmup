@@ -19,4 +19,9 @@ public class ShotBehaviour : SteerableBehaviour
        }
        Destroy(gameObject, 2.5f);
    }
+
+
+   void OnBecameInvisible() {
+        Destroy (gameObject);
+   }
 }
