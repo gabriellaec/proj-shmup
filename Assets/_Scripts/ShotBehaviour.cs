@@ -42,7 +42,6 @@ public class ShotBehaviour : SteerableBehaviour
 
 
    void OnBecameInvisible() {
-        // anim.SetTrigger("explode");
         Destroy (gameObject);
    }
 }

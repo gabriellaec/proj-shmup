@@ -5,9 +5,23 @@ using UnityEngine;
 public class EnemyController : SteerableBehaviour, IShooter, IDamageable
 {
  public GameObject tiro;
+ private GameObject player;
+
+   void Start()
+  {
+      //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
+      player = GameObject.FindWithTag("Player");
+      //direction = (posPlayer - transform.position).normalized;
+  }
     public void Shoot()
   {
-      Instantiate(tiro, transform.position  + new Vector3(0.8f, 0.0f, 0.0f), Quaternion.identity);
+      Vector3 posPlayer = player.transform.position;
+       if (posPlayer != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
+        }
+
+      Instantiate(tiro, transform.position  + new Vector3(1f, 0.0f, 0.0f), Quaternion.AngleAxis(angle, Vector3.forward));
       //throw new System.NotImplementedException();
   }
 
@@ -29,8 +43,15 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
         Mathf.Clamp(angle, 0.0f, 4.0f * Mathf.PI);
         float x = Mathf.Sin(angle);
         float y = Mathf.Cos(angle);
-
         Thrust(x, y);
        
+
+       Vector3 posPlayer = player.transform.position;
+       if (posPlayer != Vector3.zero) 
+        {
+            float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        }
+      
     }
 }

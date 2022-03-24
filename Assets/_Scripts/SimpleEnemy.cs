@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimpleEnemy : SteerableBehaviour, IDamageable
 {
+    public AudioClip explodeSFX;
 
     private Animator anim;
 
@@ -19,6 +20,7 @@ public class SimpleEnemy : SteerableBehaviour, IDamageable
     {
        anim = GetComponent<Animator>();
        anim.SetTrigger("explode");
+       AudioManager.PlaySFX(explodeSFX);
        Destroy(gameObject,0.79f);
     }
 

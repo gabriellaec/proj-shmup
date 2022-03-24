@@ -22,6 +22,10 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       Vector3 posPlayer = player.transform.position;
       direction =  (posPlayer - transform.position).normalized;
       Thrust(direction.x, direction.y);
+    //   Debug.Log("Shot Update");
+
+    Destroy(gameObject,10.0f); // se não atingir o player em 10s, some
+    
   }
 
   
@@ -35,7 +39,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       Debug.Log("ola" + collision.gameObject.tag);
       if (collision.CompareTag("Inimigos")){
           Debug.Log("oiee");
-        Destroy(gameObject);
+        // Destroy(gameObject);
           return;
 
       } 
