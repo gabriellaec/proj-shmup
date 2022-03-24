@@ -7,8 +7,10 @@ public class ShotBehaviour : SteerableBehaviour
 {
     GameManager gm;
 
+    // private Animator anim;
     private void Start(){
         gm = GameManager.GetInstance();
+        // anim = GetComponent<Animator>();
     }
     private void Update()
    {
@@ -33,6 +35,7 @@ public class ShotBehaviour : SteerableBehaviour
 
 
    void OnBecameInvisible() {
+        // anim.SetTrigger("explode");
         Destroy (gameObject);
    }
 }
