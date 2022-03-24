@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject Asteroid;
     public GameObject Rocket;
+    public GameObject Penguin;
+    public GameObject Comet;
 
     public GameObject GO;
     GameManager gm;
@@ -46,6 +48,21 @@ public class EnemySpawner : MonoBehaviour
                     GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;
                 }
             }
+
+             for(int i = 9; i < i_l1+10; i++) {
+                 if (i%2!=0){
+                Vector3 positionPenguin = new Vector3(-1 + 3f * i, (float)0);
+                GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;  
+             }}
+
+            // for(int i = 12; i < i_l1+10; i++) {
+            //     if (i%2!=0){
+            Vector3 position = new Vector3(-1 + 3f * 12, (float)0);
+            GO = Instantiate (Comet, position, Quaternion.identity, transform) as GameObject ;
+            //     }
+            // }
+
+            
    
        }
       gm.waspaused=false;

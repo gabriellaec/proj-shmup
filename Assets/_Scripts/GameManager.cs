@@ -9,6 +9,8 @@ public class GameManager
    public GameState gameState { get; private set; }
    public int vidas;
    public int pontos;
+
+   public bool pause_to_menu = false;
    private static GameManager _instance;
 
    public bool waspaused = false;
@@ -34,18 +36,21 @@ public class GameManager
     else if (nextState == GameState.GAME && (gameState == GameState.PAUSE )) 
         waspaused = true;
 
+    else if (nextState == GameState.MENU && (gameState == GameState.PAUSE ))
+        pause_to_menu = true;
+        
     gameState = nextState;
     changeStateDelegate();
     }
 
     private void Reset()
     {
-        vidas = 1;
+        vidas = 10;
         pontos = 0;
     }
    private GameManager()
    {
-       vidas = 1;
+       vidas = 10;
        pontos = 0;
        gameState = GameState.MENU;
    }

@@ -6,9 +6,12 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
 {
  public GameObject tiro;
  private GameObject player;
+  GameManager gm;
 
    void Start()
   {
+      gm = GameManager.GetInstance(); 
+
       //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
       player = GameObject.FindWithTag("Player");
       //direction = (posPlayer - transform.position).normalized;
@@ -39,6 +42,8 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
 
     private void FixedUpdate()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
         angle += 0.1f;
         Mathf.Clamp(angle, 0.0f, 4.0f * Mathf.PI);
         float x = Mathf.Sin(angle);

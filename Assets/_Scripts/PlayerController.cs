@@ -38,8 +38,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
        gm.vidas--;
        if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {           
            gm.ChangeState(GameManager.GameState.ENDGAME);
+           Reset();
        }
        
+   }
+
+   private void Reset(){
+       transform.position =  new Vector3(0, -4.0f, 0);
    }
     public void Die()
     {
@@ -48,6 +53,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
     void FixedUpdate()
     {
+        if (gm.gameState != GameManager.GameState.GAME) return;
+
+        if (gm.pause_to_menu){
+            Reset();
+            gm.pause_to_menu=false;
+        } 
+
         float yInput = Input.GetAxis("Vertical");
         float xInput = Input.GetAxis("Horizontal");
         Thrust(xInput, yInput);
@@ -95,6 +107,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.pontos += 1000;
             if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
                 gm.ChangeState(GameManager.GameState.ENDGAME);
+                Reset();
             }
             Debug.Log($"pontos {gm.pontos}");
         }
