@@ -2,8 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ShotBehaviour : SteerableBehaviour
 {
+    GameManager gm;
+
+    private void Start(){
+        gm = GameManager.GetInstance();
+    }
     private void Update()
    {
        Thrust(1, 0);
@@ -17,7 +23,12 @@ public class ShotBehaviour : SteerableBehaviour
        {
            damageable.TakeDamage();
        }
+
        Destroy(gameObject, 2.5f);
+       gm.pontos += 100;
+       Debug.Log($"pontos: {gm.pontos} \t");
+
+
    }
 
 

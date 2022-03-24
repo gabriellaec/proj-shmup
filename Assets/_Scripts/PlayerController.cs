@@ -13,13 +13,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     private float _lastShootTimestamp = 0.0f;
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
-
+   GameManager gm;
 
     private int lifes;
     private void Start()
     {
         animator = GetComponent<Animator>();
-        lifes = 10;
+        gm = GameManager.GetInstance();
     }
 
   
@@ -34,8 +34,16 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
      public void TakeDamage()
    {
-       lifes--;
-       if (lifes <= 0) Die();
+       Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
+       gm.vidas--;
+       if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {
+           
+        //    Die();
+           gm.ChangeState(GameManager.GameState.ENDGAME);
+
+       }
+
+       
    }
     public void Die()
     {
@@ -63,13 +71,17 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
        {
            Shoot();
        }
+
+       if(Input.GetKeyDown(KeyCode.Escape) && gm.gameState == GameManager.GameState.GAME) {
+            gm.ChangeState(GameManager.GameState.PAUSE);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Inimigos"))
         {
-            // Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
             TakeDamage();
         }
     }  
