@@ -30,6 +30,9 @@ public class ShotBehaviour : SteerableBehaviour
 
        if (collision.CompareTag("Inimigos")) {
            gm.pontos += 100;
+           if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
+                gm.ChangeState(GameManager.GameState.ENDGAME);
+            }
            Debug.Log($"pontos: {gm.pontos} \t");
        }
        

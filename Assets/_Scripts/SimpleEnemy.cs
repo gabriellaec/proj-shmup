@@ -19,7 +19,7 @@ public class SimpleEnemy : SteerableBehaviour, IDamageable
     {
        anim = GetComponent<Animator>();
        anim.SetTrigger("explode");
-       Destroy(gameObject,0.8f);
+       Destroy(gameObject,0.79f);
     }
 
 }

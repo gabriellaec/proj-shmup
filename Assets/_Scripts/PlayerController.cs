@@ -36,13 +36,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
    {
        Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
        gm.vidas--;
-       if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {
-           
-        //    Die();
+       if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {           
            gm.ChangeState(GameManager.GameState.ENDGAME);
-
        }
-
        
    }
     public void Die()
@@ -97,6 +93,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         {
             Destroy(collision.gameObject);
             gm.pontos += 1000;
+            if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
+                gm.ChangeState(GameManager.GameState.ENDGAME);
+            }
             Debug.Log($"pontos {gm.pontos}");
         }
     }  
