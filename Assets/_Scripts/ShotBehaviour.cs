@@ -27,8 +27,12 @@ public class ShotBehaviour : SteerableBehaviour
        }
 
        Destroy(gameObject, 2.5f);
-       gm.pontos += 100;
-       Debug.Log($"pontos: {gm.pontos} \t");
+
+       if (collision.CompareTag("Inimigos")) {
+           gm.pontos += 100;
+           Debug.Log($"pontos: {gm.pontos} \t");
+       }
+       
 
 
    }

@@ -24,6 +24,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       Thrust(direction.x, direction.y);
   }
 
+  
   private void OnBecameInvisible()
   {
       gameObject.SetActive(false);

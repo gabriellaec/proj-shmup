@@ -17,6 +17,7 @@ public class wayController : SteerableBehaviour, IShooter, IDamageable
 
     public void Die()
     {
+        Debug.Log("morreu");
         Destroy(gameObject);
     }
 

@@ -84,12 +84,14 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             Destroy(collision.gameObject);
             TakeDamage();
         }
+
+        else if (collision.CompareTag("heart"))
+        {
+
+            Destroy(collision.gameObject);
+            gm.vidas++;
+            Debug.Log($"Vidas {gm.vidas}");
+        }
     }  
 
-    
-    
-
-
-
-    
 }

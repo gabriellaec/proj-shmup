@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Inimigos
+  - powerup
+  - heart
   layers:
   - Default
   - TransparentFX
