@@ -63,6 +63,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         float yInput = Input.GetAxis("Vertical");
         float xInput = Input.GetAxis("Horizontal");
         Thrust(xInput, yInput);
+
+        float screen_size=5.0f;
+        if (transform.position.y <= -screen_size)
+            transform.position = new Vector3(transform.position.x, -screen_size, transform.position.z);
+        else if (transform.position.y >=screen_size)
+            transform.position = new Vector3(transform.position.x, screen_size-(float)0.3, transform.position.z);
         
         if (yInput != 0 || xInput != 0)
         {

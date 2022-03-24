@@ -19,8 +19,8 @@ public class StatePatrulhaPorWaypoints : State
 
   public void Start()
   {
-    //   waypoints[0].position = transform.position;
-    //   waypoints[1].position = GameObject.FindWithTag("Player").transform.position;
+      waypoints[0].position = transform.position;
+      waypoints[1].position = GameObject.FindWithTag("Player").transform.position;
   }
 
   public override void Update()
