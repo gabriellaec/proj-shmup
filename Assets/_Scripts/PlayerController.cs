@@ -92,6 +92,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.vidas++;
             Debug.Log($"Vidas {gm.vidas}");
         }
+
+        else if (collision.CompareTag("coin"))
+        {
+            Destroy(collision.gameObject);
+            gm.pontos += 1000;
+            Debug.Log($"pontos {gm.pontos}");
+        }
     }  
 
 }
