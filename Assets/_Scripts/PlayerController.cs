@@ -14,6 +14,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
     public AudioClip winSFX;
+    
 
    GameManager gm;
 
@@ -38,10 +39,13 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
    {
        Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
        gm.vidas--;
+       animator.SetTrigger("morreu");
        if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {           
            gm.ChangeState(GameManager.GameState.ENDGAME);
            Reset();
        }
+       animator.SetTrigger("ressurgiu");
+       
        
    }
 

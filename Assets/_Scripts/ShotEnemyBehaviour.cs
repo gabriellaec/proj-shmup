@@ -14,10 +14,8 @@ public class ShotEnemyBehaviour : SteerableBehaviour
 
   void Start()
   {
-      //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
       player = GameObject.FindWithTag("Player");
       gm = GameManager.GetInstance(); 
-      //direction = (posPlayer - transform.position).normalized;
   }
 
    void Update()
@@ -26,9 +24,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       Vector3 posPlayer = player.transform.position;
       direction =  (posPlayer - transform.position).normalized;
       Thrust(direction.x, direction.y);
-    //   Debug.Log("Shot Update");
-
-    // Destroy(gameObject,10.0f); // se não atingir o player em 10s, some
+      Destroy(gameObject,5.0f); // se não atingir o player em 10s, some
     
   }
 
@@ -44,7 +40,6 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       
       if (collision.CompareTag("Inimigos") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") ){
           Debug.Log("oiee");
-        // Destroy(gameObject);
           return;
 
       } 

@@ -11,10 +11,7 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
    void Start()
   {
       gm = GameManager.GetInstance(); 
-
-      //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
       player = GameObject.FindWithTag("Player");
-      //direction = (posPlayer - transform.position).normalized;
   }
     public void Shoot()
   {
@@ -23,9 +20,7 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
         {
             float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
         }
-
       Instantiate(tiro, transform.position  + new Vector3(1f, 0.0f, 0.0f), Quaternion.AngleAxis(angle, Vector3.forward));
-      //throw new System.NotImplementedException();
   }
 
     public void TakeDamage()
@@ -57,7 +52,6 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
         if (transform.position.y <= -screen_size)
             transform.position = new Vector3(transform.position.x, screen_size-(float)1, transform.position.z);
 
-       
 
        Vector3 posPlayer = player.transform.position;
        if (posPlayer != Vector3.zero) 
