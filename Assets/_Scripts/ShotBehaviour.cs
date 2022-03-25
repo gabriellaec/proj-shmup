@@ -14,6 +14,7 @@ public class ShotBehaviour : SteerableBehaviour
     }
     private void Update()
    {
+       if (gm.gameState != GameManager.GameState.GAME) return;
        Thrust(1, 0);
    }
    private void OnTriggerEnter2D(Collider2D collision)

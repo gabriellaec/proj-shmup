@@ -10,15 +10,19 @@ public class ShotEnemyBehaviour : SteerableBehaviour
 
   private GameObject player;
 
+  GameManager gm;
+
   void Start()
   {
       //Vector3 posPlayer = GameObject.FindWithTag("Player").transform.position;
       player = GameObject.FindWithTag("Player");
+      gm = GameManager.GetInstance(); 
       //direction = (posPlayer - transform.position).normalized;
   }
 
    void Update()
   {
+     if (gm.gameState != GameManager.GameState.GAME) return;
       Vector3 posPlayer = player.transform.position;
       direction =  (posPlayer - transform.position).normalized;
       Thrust(direction.x, direction.y);
