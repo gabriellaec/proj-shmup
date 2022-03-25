@@ -46,28 +46,55 @@ public class EnemySpawner : MonoBehaviour
 
         //   if (gm.level == 1){
             int i_l1 = 8;
+            int i_l2_start=50;
+            int i_l2_end=66;
+
+            // Level 1
             for(int i = 2; i < i_l1; i++) {
                  if (i%2==0){
                     for(int j = 0; j < 2; j++){
                         Vector3 posicao = new Vector3(-1 +3f * i, 3-5.55f * j);
                         GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
                     }
+                 }else{
+                     Vector3 posicao = new Vector3(-1 + 3f * i, (float)0);
+                     GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;
                  }
             }
-            for(int i = 2; i < i_l1; i++) {
-                if (i%2!=0){
-                    Vector3 posicao = new Vector3(-1 + 3f * i, (float)0);
-                    GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;
 
-                    if (randomPowerUp()==1){
-                        Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 4);
-                        GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
-                    }else if (randomPowerUp()==2){
-                        Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, -4);
-                        GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
+            // Level 2
+            for(int i = 2; i < 8; i++) {
+                //  if (i%2==0){
+                    for(int j = 0; j < 2; j++){
+                        Vector3 posicao = new Vector3(i_l2_start +2f * i, 3-5.55f * j);
+                        GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
                     }
-                }
+
+                    // if (i%2!=0){
+                        Vector3 posicaoRocket = new Vector3(i_l2_start +2f * i, (float)0);
+                        GO = Instantiate (Rocket, posicaoRocket, Quaternion.identity, transform) as GameObject ;
+                    // }
+                //  }
             }
+
+
+
+
+
+            // for(int i = 2; i < i_l1; i++) {
+            //     if (i%2!=0){
+            //         Vector3 posicao = new Vector3(-1 + 3f * i, (float)0);
+            //         GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;
+
+            //         if (randomPowerUp()==1){
+            //                 Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 2);
+            //                 GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
+            //             }else if (randomPowerUp()==2){
+            //                 Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, 2);
+            //                 GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
+            //             }
+            //     }
+            // }
 
             //  for(int i = 21; i < i_l1+10; i++) {
             //      if (i%2!=0){
@@ -89,18 +116,18 @@ public class EnemySpawner : MonoBehaviour
             GO = Instantiate (Comet, firtMeteorposition, Quaternion.identity, transform) as GameObject ;
 
 
-            for(int i = 2; i < i_l1*2; i++) {
-                 if (i%4==0){
-                        if (randomPowerUp()==1){
-                            Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 2);
-                            GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
-                        }else if (randomPowerUp()==2){
-                            Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, 2);
-                            GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
-                        }
+            // for(int i = 2; i < i_l1*2; i++) {
+            //      if (i%4==0){
+            //             if (randomPowerUp()==1){
+            //                 Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 2);
+            //                 GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
+            //             }else if (randomPowerUp()==2){
+            //                 Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, 2);
+            //                 GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
+            //             }
                                                  
-                 }
-            }
+            //      }
+            // }
             //     }
             // }
 

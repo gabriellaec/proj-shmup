@@ -117,6 +117,14 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             }
             Debug.Log($"pontos {gm.pontos}");
         }
+
+        else if (collision.CompareTag("SpaceStation"))
+        {
+            if (gm.gameState == GameManager.GameState.GAME) {           
+                    gm.ChangeState(GameManager.GameState.ENDGAME);
+                    Reset();
+            }
+        }
     }  
 
 }
