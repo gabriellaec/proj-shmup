@@ -50,7 +50,7 @@ public class GameManager
 
     private void Reset()
     {
-        vidas = 10;
+        vidas = 100;
         pontos = 0;
         timeRemainig = 420;
         // levelchange = false;

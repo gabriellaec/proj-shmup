@@ -37,7 +37,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
    private void OnTriggerEnter2D(Collider2D collision)
   {
       Debug.Log("ola" + collision.gameObject.tag);
-      if (collision.CompareTag("Inimigos")){
+      if (collision.CompareTag("Inimigos") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") ){
           Debug.Log("oiee");
         // Destroy(gameObject);
           return;

@@ -77,10 +77,32 @@ public class EnemySpawner : MonoBehaviour
                 //  }
             }
 
-            Vector3 positionPenguin = new Vector3(26f, (float)0);
-        GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;     
-        Vector3 positionPenguin2 = new Vector3(32f, (float)0);
-        GO = Instantiate (Penguin, positionPenguin2, Quaternion.identity, transform) as GameObject ;     
+        // Penguins L1
+            for(int i = 0; i < 3; i++) {
+                    for(int j = 0; j < 2; j++){
+                        Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
+                        GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ; 
+
+                        // if (i%2!=0){
+                            Vector3 posicaoHeart = new Vector3(23 +6* i, 0);
+                            GO = Instantiate (Coin, posicaoHeart, Quaternion.identity, transform) as GameObject ;     
+                        // }                       
+                    }
+            }
+
+
+        // Penguins L2
+            for(int i = 0; i < 3; i++) {
+                    for(int j = 0; j < 2; j++){
+                        Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
+                        GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                    }
+            }
+
+        //     Vector3 positionPenguin = new Vector3(26f, (float)0);
+        // GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;     
+        // Vector3 positionPenguin2 = new Vector3(32f, (float)0);
+        // GO = Instantiate (Penguin, positionPenguin2, Quaternion.identity, transform) as GameObject ;     
 
 
 
