@@ -14,6 +14,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
     public AudioClip winSFX;
+
    GameManager gm;
 
     private int lifes;
@@ -61,6 +62,11 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.pause_to_menu=false;
         } 
 
+        // if (gm.levelchange==true){
+        //     gm.pontos += 500;
+        //     gm.levelchange = false;
+        // }
+
         float yInput = Input.GetAxis("Vertical");
         float xInput = Input.GetAxis("Horizontal");
         Thrust(xInput, yInput);
@@ -95,6 +101,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.ChangeState(GameManager.GameState.ENDGAME);
             Reset();
         }
+
+        // if (transform.position.x == 50 || transform.position.x == 100 || transform.position.x == 150)
+        //     gm.levelchange = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

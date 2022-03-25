@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
             for(int i = 2; i < i_l1; i++) {
                  if (i%2==0){
                     for(int j = 0; j < 2; j++){
-                        Vector3 posicao = new Vector3(-1 +3f * i, 3-5.55f * j);
+                        Vector3 posicao = new Vector3(-1 +3f * i, (float)2.5-5.55f * j);
                         GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
                     }
                  }else{
@@ -66,7 +66,7 @@ public class EnemySpawner : MonoBehaviour
             for(int i = 2; i < 8; i++) {
                 //  if (i%2==0){
                     for(int j = 0; j < 2; j++){
-                        Vector3 posicao = new Vector3(i_l2_start +2f * i, 3-5.55f * j);
+                        Vector3 posicao = new Vector3(i_l2_start +2f * i, (float)2.5-5.55f * j);
                         GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
                     }
 

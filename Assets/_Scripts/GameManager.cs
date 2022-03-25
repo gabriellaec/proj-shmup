@@ -10,6 +10,8 @@ public class GameManager
    public int vidas;
    public int pontos;
    public float timeRemainig;
+   public bool levelchange;
+
 
 
    public bool pause_to_menu = false;
@@ -49,13 +51,15 @@ public class GameManager
     {
         vidas = 10;
         pontos = 0;
-        timeRemainig = 10;
+        timeRemainig = 420;
+        // levelchange = false;
     }
    private GameManager()
    {
        vidas = 10;
        pontos = 0;
        gameState = GameState.MENU;
-       timeRemainig = 10;
+       timeRemainig = 420;
+    //    levelchange = false;
    }
 }
