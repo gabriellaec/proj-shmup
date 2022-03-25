@@ -13,6 +13,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     private float _lastShootTimestamp = 0.0f;
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
+    public AudioClip winSFX;
    GameManager gm;
 
     private int lifes;
@@ -120,6 +121,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
         else if (collision.CompareTag("SpaceStation"))
         {
+            AudioManager.PlaySFX(winSFX);
             if (gm.gameState == GameManager.GameState.GAME) {           
                     gm.ChangeState(GameManager.GameState.ENDGAME);
                     Reset();
