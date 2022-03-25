@@ -39,12 +39,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
    {
        Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
        gm.vidas--;
-       animator.SetTrigger("morreu");
+    //    animator.SetTrigger("morreu");
        if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {           
            gm.ChangeState(GameManager.GameState.ENDGAME);
            Reset();
        }
-       animator.SetTrigger("ressurgiu");       
+    //    animator.SetTrigger("ressurgiu");       
    }
 
    private void Reset(){
@@ -116,7 +116,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         {
             TakeDamage();
         //    transform.position = (transform.position - Vector3.right);
-        
+        Debug.Log("INIMIGO");
         }
 
         else if (collision.CompareTag("heart"))
