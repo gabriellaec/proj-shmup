@@ -53,10 +53,9 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
         
         Thrust(x, y);
 
-        if (transform.position.y <= -screen_size || (transform.position.y >=screen_size)){
-                y=-y;
-                Thrust(0,50);
-        }
+
+        if (transform.position.y <= -screen_size)
+            transform.position = new Vector3(transform.position.x, screen_size-(float)1, transform.position.z);
 
        
 

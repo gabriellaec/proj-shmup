@@ -3690,6 +3690,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GoldCoin
       objectReference: {fileID: 0}
+    - target: {fileID: 1159933997714107596, guid: 2e31a76f0e5872346bc11ee81d445fb8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e31a76f0e5872346bc11ee81d445fb8, type: 3}
 --- !u!1001 &3380649299044679207
@@ -3825,17 +3829,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Heart
       objectReference: {fileID: 0}
+    - target: {fileID: 53648045350633864, guid: eda10f85607e4794da6d2023980f6bd1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3298956146607388902, guid: eda10f85607e4794da6d2023980f6bd1, type: 3}
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3298956146607388902, guid: eda10f85607e4794da6d2023980f6bd1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.06
+      value: 27.2
       objectReference: {fileID: 0}
     - target: {fileID: 3298956146607388902, guid: eda10f85607e4794da6d2023980f6bd1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.07
+      value: -3.8
       objectReference: {fileID: 0}
     - target: {fileID: 3298956146607388902, guid: eda10f85607e4794da6d2023980f6bd1, type: 3}
       propertyPath: m_LocalPosition.z

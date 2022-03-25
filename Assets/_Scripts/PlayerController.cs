@@ -127,7 +127,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         else if (collision.CompareTag("coin"))
         {
             Destroy(collision.gameObject);
-            gm.pontos += 1000;
+            gm.pontos += 500;
             if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
                 gm.ChangeState(GameManager.GameState.ENDGAME);
                 Reset();

@@ -177,45 +177,14 @@ public class EnemySpawner : MonoBehaviour
       gm.waspaused=false;
   }
 
-  void Penguins(){
-        if (gm.gameState == GameManager.GameState.GAME && !(gm.waspaused)) {
-            Debug.Log("penguins");
-
-            foreach (Transform child in transform) {
-                GameObject.Destroy(child.gameObject);
-        }
-        Debug.Log($"Progresso: {gm.progresso}");
-       
-        Vector3 positionPenguin = new Vector3(26f, (float)0);
-        GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;     
-    }
-    gm.waspaused=false;
-
-  }
 
   void Update()
   {
       if (transform.childCount <= 0 && gm.gameState == GameManager.GameState.GAME)
       {
-         Debug.Log("update");
-        //   if (gm.level == 1){
-        //     gm.level += 1;
-            // gm.pontos *= 2;
-            // Construir();
-            Debug.Log($"Progresso: {gm.progresso}");
-            if (gm.progresso >=15) Penguins();
-        //     gm.levelchange = true;
-        //   }else if (gm.level == 2){
-        //     gm.level += 1;
-        //     gm.pontos *= 2;
-        //     Construir();
-        //     gm.levelchange = true;
-        //   }
-        //   else {
-        //     gm.ChangeState(GameManager.GameState.ENDGAME);
-        //     gm.level = 1;
-        //     gm.levelchange = true;
-        //   }   
+        Debug.Log("update");
+        Construir();
+            
       }
   }
 
