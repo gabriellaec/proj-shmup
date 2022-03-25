@@ -79,24 +79,42 @@ public class EnemySpawner : MonoBehaviour
 
         // Penguins L1
             for(int i = 0; i < 3; i++) {
-                    for(int j = 0; j < 2; j++){
-                        Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
-                        GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ; 
+                for(int j = 0; j < 2; j++){
+                    Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
+                    GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                
+                }
 
-                        // if (i%2!=0){
-                            Vector3 posicaoHeart = new Vector3(23 +6* i, 0);
-                            GO = Instantiate (Coin, posicaoHeart, Quaternion.identity, transform) as GameObject ;     
-                        // }                       
-                    }
+                if (i%2==0){
+                        Vector3 posicaoCoin = new Vector3(23 +6* i, 0);
+                        GO = Instantiate (Coin, posicaoCoin, Quaternion.identity, transform) as GameObject ;     
+                } else{
+                    Vector3 posicaoHeart = new Vector3(23 +6* i, 0);
+                    GO = Instantiate (Heart, posicaoHeart, Quaternion.identity, transform) as GameObject ;   
+                }   
             }
 
 
+
         // Penguins L2
-            for(int i = 0; i < 3; i++) {
+            for(int i = 0; i < 4; i++) {
                     for(int j = 0; j < 2; j++){
-                        Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
-                        GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                        if (i%2==0){
+                            Vector3 posicao = new Vector3(66 +6* i, (float)2.5-5.55f * j);
+                            GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;        
+                        }else{
+                            Vector3 posicao = new Vector3(66 +3* i, (float)-5.55f * j);
+                            GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ; 
+                        }
+                                        
                     }
+
+                    if (i%2!=0){
+                        Vector3 posicaoCoin = new Vector3(66 +6* i, 0);
+                        GO = Instantiate (Coin, posicaoCoin, Quaternion.identity, transform) as GameObject ;     
+                    } else{
+                        Vector3 posicaoHeart = new Vector3(66 +6* i, 0);
+                        GO = Instantiate (Heart, posicaoHeart, Quaternion.identity, transform) as GameObject ;   
+                    }   
             }
 
         //     Vector3 positionPenguin = new Vector3(26f, (float)0);

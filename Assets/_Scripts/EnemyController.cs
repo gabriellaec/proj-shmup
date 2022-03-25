@@ -48,7 +48,16 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
         Mathf.Clamp(angle, 0.0f, 4.0f * Mathf.PI);
         float x = Mathf.Sin(angle);
         float y = Mathf.Cos(angle);
+
+        float screen_size=5.0f;
+        
         Thrust(x, y);
+
+        if (transform.position.y <= -screen_size || (transform.position.y >=screen_size)){
+                y=-y;
+                Thrust(0,50);
+        }
+
        
 
        Vector3 posPlayer = player.transform.position;
@@ -57,6 +66,9 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
             float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
+
+
+      
       
     }
 }
