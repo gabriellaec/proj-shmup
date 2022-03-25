@@ -11,6 +11,7 @@ public class GameManager
    public int pontos;
    public float timeRemainig;
    public bool levelchange;
+   public float progresso;
 
 
 

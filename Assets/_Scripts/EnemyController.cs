@@ -35,7 +35,7 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
 
     public void Die()
     {
-        Destroy(gameObject);
+         Destroy(gameObject);
     }
 
     float angle = 0;

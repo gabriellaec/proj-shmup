@@ -62,6 +62,8 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             gm.pause_to_menu=false;
         } 
 
+        gm.progresso = transform.position.x;
+
         // if (gm.levelchange==true){
         //     gm.pontos += 500;
         //     gm.levelchange = false;

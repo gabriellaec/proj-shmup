@@ -24,7 +24,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
       Thrust(direction.x, direction.y);
     //   Debug.Log("Shot Update");
 
-    Destroy(gameObject,10.0f); // se não atingir o player em 10s, some
+    // Destroy(gameObject,10.0f); // se não atingir o player em 10s, some
     
   }
 
