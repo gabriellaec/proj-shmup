@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     Debug.Log($"Surpresinha: {rnd}");
    }
 
-  void Construir() {
+  async void Construir() {
        Debug.Log("Construir");
        Debug.Log($"waspaused{gm.waspaused} | {gm.gameState} | {gm.gameState== GameManager.GameState.GAME}");
 
@@ -44,7 +44,6 @@ public class EnemySpawner : MonoBehaviour
               GameObject.Destroy(child.gameObject);
           }
 
-        //   if (gm.level == 1){
             int i_l1 = 8;
             int i_l2_start=50;
             int i_l2_end=66;
@@ -62,22 +61,7 @@ public class EnemySpawner : MonoBehaviour
                  }
             }
 
-            // Level 2
-            for(int i = 2; i < 8; i++) {
-                //  if (i%2==0){
-                    for(int j = 0; j < 2; j++){
-                        Vector3 posicao = new Vector3(i_l2_start +2f * i, (float)2.5-5.55f * j);
-                        GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
-                    }
-
-                    // if (i%2!=0){
-                        Vector3 posicaoRocket = new Vector3(i_l2_start +2f * i, (float)0);
-                        GO = Instantiate (Rocket, posicaoRocket, Quaternion.identity, transform) as GameObject ;
-                    // }
-                //  }
-            }
-
-        // Penguins L1
+            // Penguins L1
             for(int i = 0; i < 3; i++) {
                 for(int j = 0; j < 2; j++){
                     Vector3 posicao = new Vector3(23 +6* i, (float)2.5-5.55f * j);
@@ -93,7 +77,20 @@ public class EnemySpawner : MonoBehaviour
                 }   
             }
 
+            // Level 2
+            for(int i = 2; i < 8; i++) {
+                //  if (i%2==0){
+                    for(int j = 0; j < 2; j++){
+                        Vector3 posicao = new Vector3(i_l2_start +2f * i, (float)2.5-5.55f * j);
+                        GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                    }
 
+                    // if (i%2!=0){
+                        Vector3 posicaoRocket = new Vector3(i_l2_start +2f * i, (float)0);
+                        GO = Instantiate (Rocket, posicaoRocket, Quaternion.identity, transform) as GameObject ;
+                    // }
+                //  }
+            }
 
         // Penguins L2
             for(int i = 0; i < 4; i++) {
@@ -117,61 +114,91 @@ public class EnemySpawner : MonoBehaviour
                     }   
             }
 
-        //     Vector3 positionPenguin = new Vector3(26f, (float)0);
-        // GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;     
-        // Vector3 positionPenguin2 = new Vector3(32f, (float)0);
-        // GO = Instantiate (Penguin, positionPenguin2, Quaternion.identity, transform) as GameObject ;     
+
+        // Level 3
+            for(int i = 0; i < 8; i++) {
+                if (i%2==0){
+                    
+                        for(int j = 0; j < 2; j++){
+                            if (j==0){
+                                Vector3 posicao = new Vector3(102 +4f * i, (float)2.5-5.55f * j);
+                                GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            } else{
+                                Vector3 posicao = new Vector3(102 +4f * i, (float)2.5-5.55f * j);
+                                GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }
+                    
+                        }
+                    
+                  }else{
+                        for(int j = 0; j < 2; j++){
+                            if (j!=0){
+                                Vector3 posicao = new Vector3(102 +4f * i, (float)2.5-5.55f * j);
+                                GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            } else{
+                                Vector3 posicao = new Vector3(102 +4f * i, (float)2.5-5.55f * j);
+                                GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }
+                    
+                        }
+
+                  }
+            }
 
 
 
+            // Level 4
+            for(int i = 0; i < 10; i++) {
+                if (i%2==0){
+                        for(int j = 0; j < 3; j++){
+                            if (j==1){
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }else if (j%2==0){
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            } else{
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }
+                    
+                        }
+                    
+                  }else{
+                        for(int j = 0; j < 3; j++){
+                            if (j==1){
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }else if (j%2!=0){
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Penguin, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            } else{
+                                Vector3 posicao = new Vector3(146 +3f * i, (float)2.5-2.55f * j);
+                                GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;                        
+                            }
+                    
+                        }
 
+                  }
 
-            // for(int i = 2; i < i_l1; i++) {
-            //     if (i%2!=0){
-            //         Vector3 posicao = new Vector3(-1 + 3f * i, (float)0);
-            //         GO = Instantiate (Rocket, posicao, Quaternion.identity, transform) as GameObject ;
+                  for(int j = 0; j < 5; j++){
+                        Vector3 posicao = new Vector3(176 , (float)4-2 * j);
+                        GO = Instantiate (Asteroid, posicao, Quaternion.identity, transform) as GameObject ;                        
+                  }
+            }
 
-            //         if (randomPowerUp()==1){
-            //                 Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 2);
-            //                 GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
-            //             }else if (randomPowerUp()==2){
-            //                 Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, 2);
-            //                 GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
-            //             }
-            //     }
-            // }
-
-            //  for(int i = 21; i < i_l1+10; i++) {
-            //      if (i%2!=0){
-            //     Vector3 positionPenguin = new Vector3(-1 + 3f * i, (float)0);
-            //     GO = Instantiate (Penguin, positionPenguin, Quaternion.identity, transform) as GameObject ;  
-            //  }}
+        for (int i=12; i< 176; i+=15){
+            Vector3 position = new Vector3(-1 + 3f * i, (float)0);
+            GO = Instantiate (Comet, position, Quaternion.identity, transform) as GameObject ;
+        }
             
 
-            // for(int i = 12; i < i_l1+10; i++) {
-            //     if (i%2!=0){
-            Vector3 position = new Vector3(-1 + 3f * 12, (float)0);
-            GO = Instantiate (Comet, position, Quaternion.identity, transform) as GameObject ;
-
-
-            Vector3 firtMeteorposition = new Vector3(-1 + 3f * (-8), (float)0);
+        for (int j=5; j> -5; j--){
+            Vector3 firtMeteorposition = new Vector3(-1 + 3f * (-8),j);
             GO = Instantiate (Comet, firtMeteorposition, Quaternion.identity, transform) as GameObject ;
 
-
-            // for(int i = 2; i < i_l1*2; i++) {
-            //      if (i%4==0){
-            //             if (randomPowerUp()==1){
-            //                 Vector3 posicaoSurpriseCoin = new Vector3(-1 +3f * i, 2);
-            //                 GO = Instantiate (Coin, posicaoSurpriseCoin, Quaternion.identity, transform) as GameObject ;   
-            //             }else if (randomPowerUp()==2){
-            //                 Vector3 posicaoSurpriseHeart = new Vector3(-1 +3f * i, 2);
-            //                 GO = Instantiate (Heart, posicaoSurpriseHeart, Quaternion.identity, transform) as GameObject ;   
-            //             }
-                                                 
-            //      }
-            // }
-            //     }
-            // }
+        }
+           
 
        }
       gm.waspaused=false;

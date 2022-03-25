@@ -44,9 +44,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
            gm.ChangeState(GameManager.GameState.ENDGAME);
            Reset();
        }
-       animator.SetTrigger("ressurgiu");
-       
-       
+       animator.SetTrigger("ressurgiu");       
    }
 
    private void Reset(){
@@ -116,8 +114,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     {
         if (collision.CompareTag("Inimigos"))
         {
-            Destroy(collision.gameObject);
             TakeDamage();
+        //    transform.position = (transform.position - Vector3.right);
+        
         }
 
         else if (collision.CompareTag("heart"))
