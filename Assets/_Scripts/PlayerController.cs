@@ -90,6 +90,11 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
        if(Input.GetKeyDown(KeyCode.Escape) && gm.gameState == GameManager.GameState.GAME) {
             gm.ChangeState(GameManager.GameState.PAUSE);
         }
+
+        if(gm.timeRemainig <=0  && gm.gameState == GameManager.GameState.GAME) {
+            gm.ChangeState(GameManager.GameState.ENDGAME);
+            Reset();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
