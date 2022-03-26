@@ -13,7 +13,7 @@ public class VolantBehaviour : SteerableBehaviour
     }
    private void FixedUpdate()
    {
-        if (gm.gameState != GameManager.GameState.GAME) return;
+       if (gm.gameState != GameManager.GameState.GAME) return;
 
        angle += 0.1f;
        if (angle > 2.0f * Mathf.PI) angle = 0.0f;

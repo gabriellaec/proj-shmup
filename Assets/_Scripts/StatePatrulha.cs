@@ -5,7 +5,11 @@ using UnityEngine;
 public class StatePatrulha: State
 {
    SteerableBehaviour steerable;
+   GameManager gm;
 
+    private void Start(){
+        gm = GameManager.GetInstance();
+    }
    public override void Awake()
    {
        base.Awake();
@@ -26,6 +30,7 @@ public class StatePatrulha: State
    float angle = 0;
    public void Update()
    {
+       if (gm.gameState != GameManager.GameState.GAME) return;
        angle += 0.1f * Time.deltaTime;
        Mathf.Clamp(angle, 0.0f, 2.0f * Mathf.PI);
        float x = Mathf.Sin(angle);

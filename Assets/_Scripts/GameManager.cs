@@ -51,17 +51,15 @@ public class GameManager
 
     private void Reset()
     {
-        vidas = 100;
+        vidas = 10;
         pontos = 0;
-        timeRemainig = 420;
-        // levelchange = false;
+        timeRemainig = 300;
     }
    private GameManager()
    {
        vidas = 10;
        pontos = 0;
        gameState = GameState.MENU;
-       timeRemainig = 420;
-    //    levelchange = false;
+       timeRemainig = 300;
    }
 }
