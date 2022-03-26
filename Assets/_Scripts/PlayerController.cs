@@ -13,8 +13,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     private float _lastShootTimestamp = 0.0f;
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
-    public AudioClip winSFX;
-    
+    public AudioClip winSFX;    
 
    GameManager gm;
 
@@ -39,8 +38,9 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
    {
        Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
        gm.vidas--;
-    //    animator.SetTrigger("morreu");
-       if (gm.vidas <= 0 && gm.gameState == GameManager.GameState.GAME) {           
+    //  animator.SetTrigger("morreu");
+        Debug.Log($"bateu_nave: {gm.bateu_nave} | {gm.gameState}");
+       if (gm.gameState == GameManager.GameState.GAME && (gm.vidas <= 0 || gm.bateu_nave)) {           
            gm.ChangeState(GameManager.GameState.ENDGAME);
            Reset();
        }
@@ -119,6 +119,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         Debug.Log("INIMIGO");
         }
 
+        else if (collision.CompareTag("Nave"))
+        {
+            gm.bateu_nave = true;
+            TakeDamage();
+        }
+
         else if (collision.CompareTag("heart"))
         {
 
@@ -131,10 +137,10 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         {
             Destroy(collision.gameObject);
             gm.pontos += 500;
-            if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
-                gm.ChangeState(GameManager.GameState.ENDGAME);
-                Reset();
-            }
+            // if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
+            //     gm.ChangeState(GameManager.GameState.ENDGAME);
+            //     Reset();
+            // }
             Debug.Log($"pontos {gm.pontos}");
         }
 

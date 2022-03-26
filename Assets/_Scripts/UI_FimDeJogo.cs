@@ -13,12 +13,15 @@ public class UI_FimDeJogo : MonoBehaviour
     {
         gm = GameManager.GetInstance();
 
-        if(gm.vidas > 0 && gm.timeRemainig >=0){
+        if(gm.vidas > 0 && gm.timeRemainig >=0 && !(gm.bateu_nave)){
            message.text = "Você Ganhou!!";
            gm.pontos += (int)(gm.timeRemainig*5);
        } 
        else if (gm.vidas > 0 && gm.timeRemainig <= 0) message.text = "Timeout!!";
-       else message.text = "Você Perdeu!!";
+       else{
+           gm.bateu_nave=false;
+           message.text = "Você Perdeu!!";
+       } 
 
         // highscore
         if ( (PlayerPrefs.GetInt("HighScore",0)) < gm.pontos) 

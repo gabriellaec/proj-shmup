@@ -9,6 +9,7 @@ TagManager:
   - heart
   - coin
   - SpaceStation
+  - Nave
   layers:
   - Default
   - TransparentFX

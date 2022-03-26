@@ -10,6 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Comet;
     public GameObject Heart;
     public GameObject Coin;
+    public GameObject Nave;
 
     public GameObject GO;
     GameManager gm;
@@ -47,6 +48,10 @@ public class EnemySpawner : MonoBehaviour
             int i_l1 = 8;
             int i_l2_start=50;
             int i_l2_end=66;
+
+
+            Vector3 posicaoNave = new Vector3(-5,3);
+            GO = Instantiate (Nave, posicaoNave, Quaternion.identity, transform) as GameObject ;  
 
             // Level 1
             for(int i = 2; i < i_l1; i++) {
@@ -197,6 +202,18 @@ public class EnemySpawner : MonoBehaviour
             Vector3 firtMeteorposition = new Vector3(-1 + 3f * (-8),j);
             GO = Instantiate (Comet, firtMeteorposition, Quaternion.identity, transform) as GameObject ;
 
+        }
+
+        // bonus
+        for (int j=4; j> -6; j-=2){
+            Vector3 b1_pos = new Vector3(42,j);
+            GO = Instantiate (Coin, b1_pos, Quaternion.identity, transform) as GameObject ;
+
+            Vector3 b2_pos = new Vector3(92,j);
+            GO = Instantiate (Coin, b2_pos, Quaternion.identity, transform) as GameObject ;
+
+            Vector3 b3_pos = new Vector3(137,j);
+            GO = Instantiate (Coin, b3_pos, Quaternion.identity, transform) as GameObject ;
         }
            
 

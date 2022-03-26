@@ -12,6 +12,7 @@ public class GameManager
    public float timeRemainig;
    public bool levelchange;
    public float progresso;
+   public bool bateu_nave = false;
 
 
 

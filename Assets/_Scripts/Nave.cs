@@ -22,6 +22,12 @@ public class Nave : SteerableBehaviour
       Vector3 posPlayer = player.transform.position;
       direction =  (posPlayer - transform.position).normalized;
       Thrust(direction.x, direction.y);    
+
+    if (posPlayer != Vector3.zero) 
+    {
+        float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+    }
   }
 
    private void OnTriggerEnter2D(Collider2D collision)
