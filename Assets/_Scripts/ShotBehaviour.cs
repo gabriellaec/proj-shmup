@@ -7,10 +7,10 @@ public class ShotBehaviour : SteerableBehaviour
 {
     GameManager gm;
 
-    private Animator anim;
+    // private Animator anim;
     private void Start(){
         gm = GameManager.GetInstance();
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
     }
     private void Update()
    {
@@ -19,7 +19,7 @@ public class ShotBehaviour : SteerableBehaviour
    }
    private void OnTriggerEnter2D(Collider2D collision)
    {
-       if (collision.CompareTag("Player") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") || collision.CompareTag("SuperGun")|| collision.CompareTag("Nave")) return;
+       if (collision.CompareTag("Player") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") || collision.CompareTag("SuperGun")|| collision.CompareTag("Nave")|| collision.CompareTag("Potion")) return;
        
        IDamageable damageable = collision.gameObject.GetComponent(typeof(IDamageable)) as IDamageable;
        if (!(damageable is null))
@@ -29,7 +29,6 @@ public class ShotBehaviour : SteerableBehaviour
 
         try{ 
             Destroy(gameObject);
-            anim.SetTrigger("explode");
             if (collision != null){
                 if (collision.CompareTag("Inimigos")) {
                     gm.pontos += 100;

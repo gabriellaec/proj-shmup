@@ -8,6 +8,8 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     Animator animator;
     public GameObject bullet;
     public GameObject superBullet;
+    public GameObject shield;
+    GameObject go_shield;
     private int _lifes;
     public Transform arma01;
     public float shootDelay = 0.001f;
@@ -49,15 +51,17 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
      public void TakeDamage()
    {
-       AudioManager.PlaySFX(damageSFX);
-       Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
-       gm.vidas--;
-    //  animator.SetTrigger("morreu");
-        Debug.Log($"bateu_nave: {gm.bateu_nave} | {gm.gameState}");
-       if (gm.gameState == GameManager.GameState.GAME && (gm.vidas <= 0 || gm.bateu_nave)) {           
-           gm.ChangeState(GameManager.GameState.ENDGAME);
-           Reset();
-       }
+        if (!(gm.immune)){
+            AudioManager.PlaySFX(damageSFX);
+            Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
+            gm.vidas--;
+            //  animator.SetTrigger("morreu");
+            Debug.Log($"bateu_nave: {gm.bateu_nave} | {gm.gameState}");
+            if (gm.gameState == GameManager.GameState.GAME && (gm.vidas <= 0 || gm.bateu_nave)) {           
+                gm.ChangeState(GameManager.GameState.ENDGAME);
+                Reset();
+            }
+        }
     //    animator.SetTrigger("ressurgiu");       
    }
 
@@ -75,6 +79,12 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
         if (gm.timeRemainig < gm.endpowerup)
             gm.superShot = false;
+
+        if (gm.timeRemainig < gm.endshield){
+            Destroy(go_shield);
+            gm.immune = false;
+        }
+            
 
         if (gm.pause_to_menu){
             Reset();
@@ -150,10 +160,6 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             AudioManager.PlaySFX(coinSFX);
             Destroy(collision.gameObject);
             gm.pontos += 500;
-            // if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
-            //     gm.ChangeState(GameManager.GameState.ENDGAME);
-            //     Reset();
-            // }
             Debug.Log($"pontos {gm.pontos}");
         }
 
@@ -172,6 +178,15 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
             Destroy(collision.gameObject);
             Debug.Log("SUPERGUN!!!");
             gm.endpowerup = gm.timeRemainig - 12;
+        }
+
+        else if (collision.CompareTag("Potion"))
+        {
+            gm.immune=true;
+            Destroy(collision.gameObject);
+            Debug.Log("SHIELD!!!");
+            gm.endshield = gm.timeRemainig - 10;
+            go_shield = Instantiate(shield, transform.position, Quaternion.identity);
         }
     }  
 

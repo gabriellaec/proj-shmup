@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Nave;
     public GameObject GO;
     public GameObject SuperShot;
+    public GameObject Shield;
     GameManager gm;
 
   void Start()
@@ -213,13 +214,26 @@ public class EnemySpawner : MonoBehaviour
             GO = Instantiate (Coin, b3_pos, Quaternion.identity, transform) as GameObject ;
         }
 
-        // armas
+        // armas especiais
         Vector3 posicaoA1 = new Vector3(75,0);
         GO = Instantiate (SuperShot, posicaoA1, Quaternion.identity, transform) as GameObject ;
         Vector3 posicaoA2 = new Vector3(20,0);
         GO = Instantiate (SuperShot, posicaoA2, Quaternion.identity, transform) as GameObject ;       
         Vector3 posicaoA3 = new Vector3(130,0);
-        GO = Instantiate (SuperShot, posicaoA3, Quaternion.identity, transform) as GameObject ;                         
+        GO = Instantiate (SuperShot, posicaoA3, Quaternion.identity, transform) as GameObject ;  
+        Vector3 posicaoA4 = new Vector3(160,0);
+        GO = Instantiate (SuperShot, posicaoA4, Quaternion.identity, transform) as GameObject ;                         
+        Vector3 posicaoA5 = new Vector3(220,0);
+        GO = Instantiate (SuperShot, posicaoA5, Quaternion.identity, transform) as GameObject ;                                                
+           
+
+        // Escudos
+        Vector3 posicaoE1 = new Vector3(29,-3);
+        GO = Instantiate (Shield, posicaoE1, Quaternion.identity, transform) as GameObject ;
+        Vector3 posicaoE2 = new Vector3(52,3);
+        GO = Instantiate (Shield, posicaoE2, Quaternion.identity, transform) as GameObject ;       
+        Vector3 posicaoE3 = new Vector3(160,0);
+        GO = Instantiate (Shield, posicaoE3, Quaternion.identity, transform) as GameObject ;                         
            
 
        }

@@ -15,6 +15,7 @@ public class GameManager
    public bool bateu_nave = false;
 
    public float endpowerup = 300;
+   public float endshield = 300;
 
 
 
@@ -24,6 +25,7 @@ public class GameManager
    public bool waspaused = false;
 
    public bool superShot = false;
+   public bool immune = false;
 
 
    public static GameManager GetInstance()
@@ -55,10 +57,11 @@ public class GameManager
 
     private void Reset()
     {
-        vidas = 10;
+        vidas = 1000;
         pontos = 0;
         timeRemainig = 300;
         endpowerup = 300;
+        endshield = 300;
     }
    private GameManager()
    {
