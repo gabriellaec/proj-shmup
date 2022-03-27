@@ -38,7 +38,7 @@ public class ShotEnemyBehaviour : SteerableBehaviour
   {
       Debug.Log("ola" + collision.gameObject.tag);
       
-      if (collision.CompareTag("Inimigos") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") || collision.CompareTag("Nave")){
+      if (collision.CompareTag("Inimigos") || collision.CompareTag("heart") || collision.CompareTag("coin") || collision.CompareTag("SpaceStation") || collision.CompareTag("Nave") || collision.CompareTag("SuperGun")){
           Debug.Log("oiee");
           return;
 

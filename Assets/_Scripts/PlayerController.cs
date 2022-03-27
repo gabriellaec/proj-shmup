@@ -7,13 +7,18 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 {
     Animator animator;
     public GameObject bullet;
+    public GameObject superBullet;
     private int _lifes;
     public Transform arma01;
     public float shootDelay = 0.001f;
     private float _lastShootTimestamp = 0.0f;
     public AudioClip shootSFX;
     public AudioClip thrustersSFX;
-    public AudioClip winSFX;    
+    public AudioClip winSFX; 
+    public AudioClip coinSFX;   
+    public AudioClip heartSFX; 
+    public AudioClip damageSFX;
+    public AudioClip fireballSFX;
 
    GameManager gm;
 
@@ -27,15 +32,24 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
   
    public void Shoot()
    {
-        if (Time.time - _lastShootTimestamp < shootDelay) return;
-        AudioManager.PlaySFX(shootSFX);
+        if (Time.time - _lastShootTimestamp < shootDelay) return;     
         _lastShootTimestamp = Time.time;
-        Instantiate(bullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
+
+        if (gm.superShot){
+            AudioManager.PlaySFX(fireballSFX);
+            Instantiate(superBullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
+        } else{
+            AudioManager.PlaySFX(shootSFX);
+            Instantiate(bullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
+        }
+            
+
 
    }
 
      public void TakeDamage()
    {
+       AudioManager.PlaySFX(damageSFX);
        Debug.Log($"vidas: {gm.vidas} | {gm.gameState} \t");
        gm.vidas--;
     //  animator.SetTrigger("morreu");
@@ -59,17 +73,15 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     {
         if (gm.gameState != GameManager.GameState.GAME) return;
 
+        if (gm.timeRemainig < gm.endpowerup)
+            gm.superShot = false;
+
         if (gm.pause_to_menu){
             Reset();
             gm.pause_to_menu=false;
         } 
 
         gm.progresso = transform.position.x;
-
-        // if (gm.levelchange==true){
-        //     gm.pontos += 500;
-        //     gm.levelchange = false;
-        // }
 
         float yInput = Input.GetAxis("Vertical");
         float xInput = Input.GetAxis("Horizontal");
@@ -127,7 +139,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
         else if (collision.CompareTag("heart"))
         {
-
+            AudioManager.PlaySFX(heartSFX);
             Destroy(collision.gameObject);
             gm.vidas++;
             Debug.Log($"Vidas {gm.vidas}");
@@ -135,6 +147,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
         else if (collision.CompareTag("coin"))
         {
+            AudioManager.PlaySFX(coinSFX);
             Destroy(collision.gameObject);
             gm.pontos += 500;
             // if (gm.pontos >=10000 && gm.gameState == GameManager.GameState.GAME) {           
@@ -151,6 +164,14 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
                     gm.ChangeState(GameManager.GameState.ENDGAME);
                     Reset();
             }
+        }
+
+        else if (collision.CompareTag("SuperGun"))
+        {
+            gm.superShot=true;
+            Destroy(collision.gameObject);
+            Debug.Log("SUPERGUN!!!");
+            gm.endpowerup = gm.timeRemainig - 12;
         }
     }  
 

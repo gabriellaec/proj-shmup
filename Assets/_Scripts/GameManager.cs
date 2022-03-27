@@ -14,12 +14,16 @@ public class GameManager
    public float progresso;
    public bool bateu_nave = false;
 
+   public float endpowerup = 300;
+
 
 
    public bool pause_to_menu = false;
    private static GameManager _instance;
 
    public bool waspaused = false;
+
+   public bool superShot = false;
 
 
    public static GameManager GetInstance()

@@ -11,8 +11,8 @@ public class EnemySpawner : MonoBehaviour
     public GameObject Heart;
     public GameObject Coin;
     public GameObject Nave;
-
     public GameObject GO;
+    public GameObject SuperShot;
     GameManager gm;
 
   void Start()
@@ -30,10 +30,9 @@ public class EnemySpawner : MonoBehaviour
     else if (rnd<=40) return 2; //coracao
     return 0;
 
-    Debug.Log($"Surpresinha: {rnd}");
    }
 
-  async void Construir() {
+  void Construir() {
        Debug.Log("Construir");
        Debug.Log($"waspaused{gm.waspaused} | {gm.gameState} | {gm.gameState== GameManager.GameState.GAME}");
 
@@ -47,9 +46,6 @@ public class EnemySpawner : MonoBehaviour
 
             int i_l1 = 8;
             int i_l2_start=50;
-            int i_l2_end=66;
-
-
             Vector3 posicaoNave = new Vector3(-5,3);
             GO = Instantiate (Nave, posicaoNave, Quaternion.identity, transform) as GameObject ;  
 
@@ -109,6 +105,7 @@ public class EnemySpawner : MonoBehaviour
                         }
                                         
                     }
+
 
                     if (i%2!=0){
                         Vector3 posicaoCoin = new Vector3(66 +6* i, 0);
@@ -215,6 +212,14 @@ public class EnemySpawner : MonoBehaviour
             Vector3 b3_pos = new Vector3(137,j);
             GO = Instantiate (Coin, b3_pos, Quaternion.identity, transform) as GameObject ;
         }
+
+        // armas
+        Vector3 posicaoA1 = new Vector3(75,0);
+        GO = Instantiate (SuperShot, posicaoA1, Quaternion.identity, transform) as GameObject ;
+        Vector3 posicaoA2 = new Vector3(20,0);
+        GO = Instantiate (SuperShot, posicaoA2, Quaternion.identity, transform) as GameObject ;       
+        Vector3 posicaoA3 = new Vector3(130,0);
+        GO = Instantiate (SuperShot, posicaoA3, Quaternion.identity, transform) as GameObject ;                         
            
 
        }

@@ -3,19 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class ShotBehaviour : SteerableBehaviour
+public class SuperShotBehaviour : SteerableBehaviour
 {
     GameManager gm;
-
-    // private Animator anim;
     private void Start(){
         gm = GameManager.GetInstance();
-        // anim = GetComponent<Animator>();
     }
     private void Update()
    {
        if (gm.gameState != GameManager.GameState.GAME) return;
-       Thrust(1, 0);
+       Thrust(2, 0);
    }
    private void OnTriggerEnter2D(Collider2D collision)
    {
@@ -28,10 +25,10 @@ public class ShotBehaviour : SteerableBehaviour
        }
 
         try{ 
-            Destroy(gameObject);
+            Destroy(gameObject,3f);
             if (collision != null){
                 if (collision.CompareTag("Inimigos")) {
-                    gm.pontos += 100;
+                    gm.pontos += 300;
                     Debug.Log($"pontos: {gm.pontos} \t");
                 }
             }
@@ -42,7 +39,6 @@ public class ShotBehaviour : SteerableBehaviour
 
 
    }
-
 
    void OnBecameInvisible() {
         Destroy (gameObject);

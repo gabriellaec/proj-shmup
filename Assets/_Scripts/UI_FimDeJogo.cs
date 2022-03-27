@@ -9,6 +9,8 @@ public class UI_FimDeJogo : MonoBehaviour
    public int recorde;
 
     GameManager gm;
+    public AudioClip perdeuSFX;
+
     private void OnEnable()
     {
         gm = GameManager.GetInstance();
@@ -17,8 +19,12 @@ public class UI_FimDeJogo : MonoBehaviour
            message.text = "Você Ganhou!!";
            gm.pontos += (int)(gm.timeRemainig*5);
        } 
-       else if (gm.vidas > 0 && gm.timeRemainig <= 0) message.text = "Timeout!!";
+       else if (gm.vidas > 0 && gm.timeRemainig <= 0){
+            AudioManager.PlaySFX(perdeuSFX);
+            message.text = "Timeout!!";
+       } 
        else{
+           AudioManager.PlaySFX(perdeuSFX);
            gm.bateu_nave=false;
            message.text = "Você Perdeu!!";
        } 

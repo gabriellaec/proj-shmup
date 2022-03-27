@@ -10,6 +10,7 @@ TagManager:
   - coin
   - SpaceStation
   - Nave
+  - SuperGun
   layers:
   - Default
   - TransparentFX

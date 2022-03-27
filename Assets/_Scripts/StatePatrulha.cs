@@ -28,7 +28,7 @@ public class StatePatrulha: State
    }
 
    float angle = 0;
-   public void Update()
+   override public void Update()
    {
        if (gm.gameState != GameManager.GameState.GAME) return;
        angle += 0.1f * Time.deltaTime;
