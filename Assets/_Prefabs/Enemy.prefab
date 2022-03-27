@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 18925964344482397}
   - component: {fileID: 18925964344482390}
   - component: {fileID: 18925964344482385}
+  - component: {fileID: -9150799035779687935}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Inimigos
@@ -148,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
   tiro: {fileID: 2681684004049938900, guid: c282d8418d41ecf4db99f7b7e0feeaf9, type: 3}
+  explodeSFX: {fileID: 8300000, guid: 89781e7c938361943aa8ca8bf703418e, type: 3}
 --- !u!114 &18925964344482390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,3 +175,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootDelay: 5
+--- !u!95 &-9150799035779687935
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18925964344482398}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 82145a7799a38964d9948b6ea51379b9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

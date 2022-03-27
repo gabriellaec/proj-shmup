@@ -58,6 +58,7 @@ public class GameManager
         vidas = 10;
         pontos = 0;
         timeRemainig = 300;
+        endpowerup = 300;
     }
    private GameManager()
    {

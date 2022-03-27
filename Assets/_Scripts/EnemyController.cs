@@ -7,10 +7,13 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
  public GameObject tiro;
  private GameObject player;
   GameManager gm;
+  private Animator anim;
+  public AudioClip explodeSFX;
 
    void Start()
   {
       gm = GameManager.GetInstance(); 
+      anim = GetComponent<Animator>();
       player = GameObject.FindWithTag("Player");
   }
     public void Shoot()
@@ -30,7 +33,10 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
 
     public void Die()
     {
-         Destroy(gameObject);
+       
+       anim.SetTrigger("explode");
+       AudioManager.PlaySFX(explodeSFX);
+       Destroy(gameObject,0.79f);         
     }
 
     float angle = 0;
@@ -59,9 +65,5 @@ public class EnemyController : SteerableBehaviour, IShooter, IDamageable
             float angle = Mathf.Atan2(posPlayer.y, posPlayer.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
-
-
-      
-      
     }
 }
