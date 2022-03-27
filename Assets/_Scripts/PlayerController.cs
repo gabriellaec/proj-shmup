@@ -182,6 +182,7 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
 
         else if (collision.CompareTag("Potion"))
         {
+            AudioManager.PlaySFX(heartSFX);
             gm.immune=true;
             Destroy(collision.gameObject);
             Debug.Log("SHIELD!!!");

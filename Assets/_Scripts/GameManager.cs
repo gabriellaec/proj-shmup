@@ -57,7 +57,7 @@ public class GameManager
 
     private void Reset()
     {
-        vidas = 1000;
+        vidas = 10;
         pontos = 0;
         timeRemainig = 300;
         endpowerup = 300;

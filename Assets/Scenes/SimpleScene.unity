@@ -2139,6 +2139,7 @@ MonoBehaviour:
   td: {fileID: 11400000, guid: 388701daaa55c334e9f5368eb44c325e, type: 2}
   bullet: {fileID: 2681684004049938900, guid: c946670828fc0b64d8bb44bd629b9027, type: 3}
   superBullet: {fileID: 2681684004049938900, guid: 10802f451f7c3624eaf047b3e04dab81, type: 3}
+  shield: {fileID: 250897683446968018, guid: af6feb63d39360347bd72fe66ef4871c, type: 3}
   arma01: {fileID: 0}
   shootDelay: 0.5
   shootSFX: {fileID: 8300000, guid: 8cf5c3e25b1c42c44aa06ddfa21bc54a, type: 3}
@@ -2807,6 +2808,7 @@ MonoBehaviour:
   Nave: {fileID: 8076359853796230864, guid: f37fd5b03803a21479616d4cf400cfde, type: 3}
   GO: {fileID: 0}
   SuperShot: {fileID: 3130947791316243740, guid: acbac2ae210126c43887045d452a3893, type: 3}
+  Shield: {fileID: 7893418542022675228, guid: 8094e34e5619ae042926985ad578fda5, type: 3}
 --- !u!4 &1602055844
 Transform:
   m_ObjectHideFlags: 0
