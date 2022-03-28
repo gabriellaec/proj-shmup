@@ -22,7 +22,8 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
     public AudioClip damageSFX;
     public AudioClip fireballSFX;
 
-   GameManager gm;
+    GameManager gm;
+    Vector3 shootDirection;
 
     private int lifes;
     private void Start()
@@ -38,8 +39,16 @@ public class PlayerController : SteerableBehaviour, IShooter, IDamageable
         _lastShootTimestamp = Time.time;
 
         if (gm.superShot){
+            Vector3 posMouse = Input.mousePosition;
+            //posMouse.z = 0.0f;
+            posMouse = Camera.main.ScreenToWorldPoint(posMouse);
+            if (posMouse != Vector3.zero) 
+                {
+                    float angle = Mathf.Atan2(posMouse.y, posMouse.x) * Mathf.Rad2Deg;
+                    Instantiate(superBullet, transform.position  + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.AngleAxis(angle, Vector3.forward));
+                }
             AudioManager.PlaySFX(fireballSFX);
-            Instantiate(superBullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
+            //Instantiate(superBullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
         } else{
             AudioManager.PlaySFX(shootSFX);
             Instantiate(bullet, transform.position + new Vector3(1.0f, 0.0f, 0.0f), Quaternion.identity);
