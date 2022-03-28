@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Inimigos
+  - powerup
+  - heart
+  - coin
+  - SpaceStation
+  - Nave
+  - SuperGun
+  - Potion
   layers:
   - Default
   - TransparentFX
@@ -12,8 +19,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - background
+  - characters
   - 
   - 
   - 
@@ -41,4 +48,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 933338917
+    locked: 0
+  - name: characters
+    uniqueID: 1082608507
     locked: 0
